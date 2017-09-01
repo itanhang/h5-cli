@@ -1,13 +1,34 @@
 <template>
   <swiper :options="swiperOption" :not-next-tick="notNextTick" ref="mySwiper">
     <!-- slides -->
-    <swiper-slide>I'm Slide 1</swiper-slide>
-    <swiper-slide>I'm Slide 2</swiper-slide>
-    <swiper-slide>I'm Slide 3</swiper-slide>
-    <swiper-slide>I'm Slide 4</swiper-slide>
-    <swiper-slide>I'm Slide 5</swiper-slide>
-    <swiper-slide>I'm Slide 6</swiper-slide>
-    <swiper-slide>I'm Slide 7</swiper-slide>
+    <swiper-slide class="a1">
+      <span>1</span>
+      I'm Slide 1
+    </swiper-slide>
+    <swiper-slide class="a2">
+      <span>2</span>
+      I'm Slide 2
+    </swiper-slide>
+    <swiper-slide class="a3">
+      <span>3</span>
+      I'm Slide 3
+    </swiper-slide>
+    <swiper-slide class="a4">
+      <span>4</span>
+      I'm Slide 4
+    </swiper-slide>
+    <swiper-slide class="a5">
+      <span>5</span>
+      I'm Slide 5
+    </swiper-slide>
+    <swiper-slide class="a6">
+      <span>6</span>
+      I'm Slide 6
+    </swiper-slide>
+    <swiper-slide class="a7">
+      <span>7</span>
+      I'm Slide 7
+    </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
     <div class="swiper-button-prev" slot="button-prev"></div>
@@ -45,7 +66,7 @@ export default {
         debugger: true,
         // swiper的各种回调函数也可以出现在这个对象中，和swiper官方一样
         onTransitionStart (swiper) {
-          // console.log(swiper)
+          console.log(swiper)
         }
       }
     }
@@ -69,6 +90,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
+@import '../assets/page';
+
 .swiper-container, .swiper-wrapper, .swiper-slide {
   width: 100%;
   height: 100%;
@@ -80,7 +103,21 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #eee;
+  position: relative;
+  overflow: hidden;
+  color: #666;
+  span {
+    position: absolute;
+    top: 10%;
+    font-size: 50px;
+    transition: all .8s ease .2s;
+  }
+  &.swiper-slide-active span {
+    color: #eee;
+    visibility: visible;
+    transform: none;
+    opacity: 1;
+  }
 }
 .swiper-pagination {
   position: absolute;
@@ -119,7 +156,7 @@ export default {
     overflow: hidden;
     left: 0;
     top: 0;
-    background: rgba(0,0,0,.5);
+    background: rgba(214,60,23,.5);
   }
 }
 </style>
